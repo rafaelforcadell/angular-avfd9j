@@ -1,0 +1,15 @@
+.mat-ink-bar {
+  display: none;
+}
+
+.mat-tab-label {
+  height: 68px !important;
+  padding: 0 32px !important;
+  opacity: 1 !important;
+  min-width: unset !important;
+  border-radius: 16px 16px 0 0;
+}
+
+.mat-tab-label-active {
+  background-color: white;
+}
