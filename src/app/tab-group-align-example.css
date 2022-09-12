@@ -2,14 +2,183 @@
   display: none;
 }
 
-.mat-tab-label {
-  height: 68px !important;
-  padding: 0 32px !important;
-  opacity: 1 !important;
-  min-width: unset !important;
+.mat-tab-header {
+  z-index: 2;
+  align-items: center;
+}
+
+.mat-tab-label-container {
   border-radius: 16px 16px 0 0;
 }
 
+.mat-tab-nav-bar,
+.mat-tab-header {
+  border: none;
+}
+
+.mat-tab-label {
+  align-items: stretch !important;
+  height: 68px !important;
+  padding: 0 !important;
+  opacity: 1 !important;
+  min-width: unset !important;
+  border-radius: 16px 16px 0 0;
+  margin-right: -32px;
+  overflow: visible;
+}
+
 .mat-tab-label-active {
-  background-color: white;
+  z-index: 2;
+  cursor: default !important;
+}
+
+.mat-tab-label-content {
+  padding: 0 32px;
+  border-radius: 16px 16px 0 0;
+}
+
+.mat-tab-label:not(.mat-tab-label-active) .mat-tab-label-content {
+  opacity: 0.5;
+  transition: opacity 150ms ease-in-out;
+}
+
+.mat-tab-label:not(.mat-tab-label-active):hover .mat-tab-label-content,
+.mat-tab-label:not(.mat-tab-label-active):focus .mat-tab-label-content {
+  opacity: 1;
+}
+
+.mat-tab-label-active .mat-tab-label-content {
+  background-color: #ffffff; /* Tailwind white */
+  box-shadow: 0 0 #0000, 0 0 #0000, 0 1px 3px 0 rgb(0 0 0 / 0.1),
+    0 1px 2px -1px rgb(0 0 0 / 0.1) !important; /* Tailwind .shadow */
+}
+
+.mat-tab-label:before,
+.mat-tab-label:after {
+  position: relative;
+  top: auto;
+  bottom: auto;
+  left: auto;
+  right: auto;
+  display: block;
+  width: 16px;
+  height: 68px;
+  border: 0;
+  border-radius: 0;
+  margin: 0 !important;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  content: '';
+}
+.mat-tab-label-active:before {
+  background-image: url(tab-corner-left-active.svg);
+}
+.mat-tab-label-active:after {
+  background-image: url(tab-corner-right-active.svg);
+}
+
+.mat-tab-header-pagination {
+  min-width: 36px !important;
+  width: 36px;
+  height: 36px;
+  padding: 0 !important;
+  box-shadow: none;
+  border-radius: 100%;
+  transition: background-color 150ms ease-in-out;
+}
+.mat-tab-header-pagination:not(.mat-tab-header-pagination-disabled):hover,
+.mat-tab-header-pagination:not(.mat-tab-header-pagination-disabled):focus {
+  background-color: #d1d5db !important; /* Tailwind gray-300 */
+}
+
+.mat-tab-header-pagination-chevron {
+  width: 6px !important;
+  height: 6px !important;
+  border-color: #6b7280; /* Tailwind gray-500 */
+}
+
+.mat-tab-header-pagination-disabled .mat-tab-header-pagination-chevron {
+  border-color: #e5e7eb; /* Tailwind gray-200 */
+}
+
+.mat-tab-header-pagination-before,
+.mat-tab-header-rtl .mat-tab-header-pagination-after {
+  margin-right: 8px;
+}
+.mat-tab-header-pagination-before .mat-tab-header-pagination-chevron,
+.mat-tab-header-rtl
+  .mat-tab-header-pagination-after
+  .mat-tab-header-pagination-chevron {
+  position: relative;
+  left: 2px;
+}
+
+.mat-tab-header-pagination-after,
+.mat-tab-header-rtl .mat-tab-header-pagination-before {
+  margin-left: 8px;
+}
+.mat-tab-header-rtl
+  .mat-tab-header-pagination-before
+  .mat-tab-header-pagination-chevron,
+.mat-tab-header-pagination-after .mat-tab-header-pagination-chevron {
+  position: relative;
+  right: 2px;
+}
+
+.mat-tab-header:not(.mat-tab-header-pagination-controls-enabled)
+  .mat-tab-label:first-child:before {
+  display: none;
+}
+
+.mat-tab-body-content-box {
+  padding: 32px;
+  border-radius: 16px;
+  background-color: #ffffff;
+  box-shadow: 0 0 #0000, 0 0 #0000, 0 1px 3px 0 rgb(0 0 0 / 0.1),
+    0 1px 2px -1px rgb(0 0 0 / 0.1) !important; /* Tailwind .shadow */
+}
+
+.mat-tab-body-content-box + .mat-tab-body-content-box {
+  margin-top: 24px;
+}
+
+.mat-tab-header:not(.mat-tab-header-pagination-controls-enabled)
+  + .mat-tab-body-wrapper
+  .mat-tab-body:first-child
+  .mat-tab-body-content-box {
+  border-radius: 0 16px 16px;
+}
+
+.mat-tab-group {
+  margin: 0 -2px;
+  max-width: none !important;
+}
+
+.mat-tab-label-container {
+  padding: 0 2px;
+}
+.mat-tab-body-wrapper {
+  padding: 0 2px 2px;
+  margin-bottom: -2px;
+}
+
+.mat-tab-body-wrapper,
+.mat-tab-body.mat-tab-body-active,
+.mat-tab-body,
+.mat-tab-body-content {
+  overflow: visible !important;
+}
+
+/* As duas regras a seguir servem apenas para este exemplo e NÃO devem ser aplicadas ao projeto Zoom Rural */
+
+.mat-tab-group {
+  margin-bottom: 24px;
+}
+
+.mat-tab-group + div {
+  padding: 32px;
+  border-radius: 16px;
+  background-color: #ffffff;
+  box-shadow: 0 0 #0000, 0 0 #0000, 0 1px 3px 0 rgb(0 0 0 / 0.1),
+    0 1px 2px -1px rgb(0 0 0 / 0.1);
 }
