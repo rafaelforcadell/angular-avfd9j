@@ -37,6 +37,10 @@
   border-radius: 16px 16px 0 0;
 }
 
+.mat-tab-group.mat-primary .mat-tab-label.cdk-keyboard-focused:not(.mat-tab-disabled) {
+  background-color: transparent;
+}
+
 .mat-tab-label:not(.mat-tab-label-active) .mat-tab-label-content {
   opacity: 0.5;
   transition: opacity 150ms ease-in-out;
